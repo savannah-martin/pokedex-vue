@@ -1,8 +1,26 @@
 <template>
-  <div class="pokemon" @click="clickAction">
+  <!-- <div class="pokemon" @click="clickAction">
     <h1>{{ pokemon.name }}</h1>
-    <h1>{{ pokemon.id }}</h1>
+    <h1>{{ pokemon.id }}</h1> -->
+
+  <div
+    class="pokemon"
+    @click="clickAction"
+  >
+    <div class="img-container">
+      <img :src="pokemon.sprites.other['official-artwork'].front_default" />
+    </div>
+    <div class="info">
+      <span class="number">#{{ pokemon.id }}</span>
+      <h3 class="name" style="text-transform: capitalize">
+        {{ pokemon.name }}
+      </h3>
+      <small class="type">
+      </small>
+    </div>
   </div>
+
+  <!-- </div> -->
 </template>
 
 <script>
@@ -10,15 +28,13 @@ export default {
   name: "PokemonCard",
   props: {
     pokemon: Object,
-    clickAction: String
+    clickAction: String,
   },
   data() {
-      return {
-          
-      }
+    return {};
   },
   methods: {
-      //actually do GUID
+    //actually do GUID
     removePokemon() {
       this.$emit("remove-pokemon", this.pokemon.id);
     },
@@ -59,7 +75,7 @@ export default {
 }
 
 .pokemon .img-container img {
-  /* max-width: 90%; */
+  max-width: 100px;
   width: 120%;
   margin-top: 00px;
 }
