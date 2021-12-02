@@ -24,7 +24,7 @@
         </button>
         <button
           type="button"
-          class="btn btn-outline-light my-2 my-sm-0"
+          class="btn btn-outline-light my-2 my-sm-0 mx-1"
           @click="loadPokemon()"
         >
           Load
@@ -32,8 +32,8 @@
       </form>
     </div>
   </nav>
-  <PartyPokemon :partyPokemon="partyPokemon"/>
-  <AllPokemon :allPokemon="allPokemon"/>
+  <PartyPokemon :partyPokemon="partyPokemon" />
+  <AllPokemon :allPokemon="allPokemon" />
   <footer class="fixed-bottom">
     <p>&copy; 2021</p>
   </footer>
