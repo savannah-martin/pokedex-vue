@@ -3,10 +3,7 @@
     <h1>{{ pokemon.name }}</h1>
     <h1>{{ pokemon.id }}</h1> -->
 
-  <div
-    class="pokemon"
-    @click="clickAction"
-  >
+  <div class="pokemon" @click="click">
     <div class="img-container">
       <img :src="pokemon.sprites.other['official-artwork'].front_default" />
     </div>
@@ -16,9 +13,9 @@
         {{ pokemon.name }}
       </h3>
       <small class="type">
-         Type:
-         <!-- {{this.pokemonTypeString(pokemon)}} -->
-       </small>
+        Type:
+        {{ pokemon.type }}
+      </small>
     </div>
   </div>
 
@@ -40,11 +37,8 @@ export default {
     getGUID() {
       return Math.floor(Math.random() * 1000000);
     },
-    removePokemon() {
-      this.$emit("remove-pokemon", this.pokemon.id);
-    },
-    addPokemon() {
-      this.$emit("add-pokemon", this.pokemon.id);
+    click() {
+      this.$emit("click-pokemon", this.pokemon.guid);
     },
   },
 };
@@ -65,7 +59,7 @@ export default {
   transform: scale(1);
   transition: all 0.2s;
   cursor: pointer;
-  max-height: 250px;
+  max-height: 275px;
 }
 
 .pokemon:hover {

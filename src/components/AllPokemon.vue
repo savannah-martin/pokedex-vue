@@ -8,7 +8,7 @@
         :key="p.id"
         :pokemon="p"
         :clickAction="addPokemon"
-        @add-pokemon="add"
+        @click-pokemon="add"
       />
   </div>
 </template>
@@ -23,9 +23,14 @@ export default {
     allPokemon: Array,
   },
   methods: {
-   add(id) {
-     this.emit("add-pokemon", id);
+   add(guid) {
+     this.$emit("add-pokemon", guid);
    },
+  },
+  data() {
+    return {
+      clickAction: ""
+    };
   },
 };
 </script>

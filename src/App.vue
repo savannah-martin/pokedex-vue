@@ -25,7 +25,7 @@
         <button
           type="button"
           class="btn btn-outline-light my-2 my-sm-0 mx-1"
-          @click="loadPokemon()"
+          @click="loadPokemon"
         >
           Load
         </button>
@@ -87,28 +87,27 @@ export default {
       return Math.floor(Math.random() * 1000000);
     },
     pokemonTypeString(pokemon) {
-        if (pokemon.types.length > 1) {
-          return `${pokemon.types[0].type.name} / ${pokemon.types[1].type.name}`;
-        } else {
-          return `${pokemon.types[0].type.name}`;
-        }
-    },
-    remove(pokemon) {
-      this.partyPokemon = this.partyPokemon.filter(
-        (p) => p.id != pokemon.id
-      );
-    },
-    add(pokemon) {
-      if (this.partyPokemon.length < 6) {
-        const pokemonCopy = { ...pokemon };
-        this.partyPokemon.push(pokemonCopy)
-      
-        
-        // const pokemonCopy = { ...pokemon };
-        // pokemonCopy.guid = this.getGUID();
-        // console.log(pokemonCopy.guid);
-        // this.partyPokemon.push(pokemonCopy);
+      if (pokemon.types.length > 1) {
+        return `${pokemon.types[0].type.name} / ${pokemon.types[1].type.name}`;
+      } else {
+        return `${pokemon.types[0].type.name}`;
       }
+    },
+    add(guid) {
+      if (this.partyPokemon.length < 6) {
+        this.allPokemon.forEach((p) => {
+          if (p.guid == guid) {
+            let pokemon = p;
+            const pokemonCopy = { ...pokemon };
+            pokemonCopy.guid = this.getGUID();
+            console.log(pokemonCopy.guid);
+            this.partyPokemon.push(pokemonCopy);
+          }
+        });
+      }
+    },
+    remove(guid) {
+      this.partyPokemon = this.partyPokemon.filter((p) => p.guid != guid);
     },
     clearPokemon() {
       this.filteredPokemon = [];
@@ -123,6 +122,8 @@ export default {
           p.name = "Mr. Mime";
         }
         p.isFavorite = false;
+        p.guid = this.getGUID(p);
+        p.type = this.pokemonTypeString(p);
 
         pokemon.push(p);
       }
@@ -191,10 +192,5 @@ footer {
 
 footer p {
   margin: auto;
-}
-html,
-body {
-  height: 100%;
-  /* overflow-y: hidden; */
 }
 </style>
