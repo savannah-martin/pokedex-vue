@@ -34,11 +34,11 @@ export default {
 
 <style>
 #party {
-  background-color: #fff;
   margin-top: 70px;
+  background-color: #fff;
   min-height: 30vh;
   width: 100%;
-  height: auto;
+  /* height: auto; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

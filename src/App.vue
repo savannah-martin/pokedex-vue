@@ -114,7 +114,7 @@ export default {
     },
     async loadPokemon() {
       // load all pokemon from API and save into all pokemon
-      const pokemon_count = 5;
+      const pokemon_count = 150;
       let pokemon = [];
       for (let i = 1; i <= pokemon_count; i++) {
         let p = await getPokemon(i);
