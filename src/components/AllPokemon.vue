@@ -2,15 +2,14 @@
   <div id="allPokemon">
     <h2>All Pokemon</h2>
   </div>
-  <div class="all-pokemon">
-    <!-- pokemon cards go here -->
-    <PokemonCard
-      v-for="p in allPokemon"
-      :key="p.id"
-      :pokemon="p"
-      :clickAction="addPokemon"
-      @remove-pokemon="add"
-    />
+  <div id="all-pokemon">
+      <PokemonCard
+        v-for="p in allPokemon"
+        :key="p.id"
+        :pokemon="p"
+        :clickAction="addPokemon"
+        @add-pokemon="add"
+      />
   </div>
 </template>
 
@@ -23,11 +22,22 @@ export default {
   props: {
     allPokemon: Array,
   },
+  methods: {
+   add(id) {
+     this.emit("add-pokemon", id);
+   },
+  },
 };
 </script>
 
 <style>
 #allPokemon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#all-pokemon {
   /* overflow: scroll; */
   height: 60vh;
   display: flex;

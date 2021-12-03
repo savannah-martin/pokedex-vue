@@ -6,12 +6,12 @@
   <div class="party-pokemon">
     <!-- pokemon cards go here -->
     <PokemonCard
-      v-for="p in partyPokemon"
-      :key="p.id"
-      :pokemon="p"
-      :clickAction="removePokemon"
-      @remove-pokemon="remove"
-    />
+        v-for="p in partyPokemon"
+        :key="p.id"
+        :pokemon="p"
+        :clickAction="removePokemon"
+        @remove-pokemon="remove"
+      />
   </div>
 </template>
 
@@ -33,11 +33,6 @@ export default {
 </script>
 
 <style>
-html,
-body {
-  height: 100%;
-  /* overflow-y: hidden; */
-}
 
 #party {
   background-color: #fff;
@@ -54,37 +49,5 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-#filtered-pokemon {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-#all {
-  /* position: relative; */
-  margin-top: 70px;
-}
-
-#all-pokemon {
-  /* overflow: scroll; */
-  height: 60vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-footer {
-  min-height: 100px;
-  padding: 1rem;
-  background-color: #ddd;
-  color: black;
-  text-align: center;
-  display: flex;
-}
-
-footer p {
-  margin: auto;
 }
 </style>

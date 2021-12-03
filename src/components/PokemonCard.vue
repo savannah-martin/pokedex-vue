@@ -16,7 +16,9 @@
         {{ pokemon.name }}
       </h3>
       <small class="type">
-      </small>
+         Type:
+         <!-- {{this.pokemonTypeString(pokemon)}} -->
+       </small>
     </div>
   </div>
 
@@ -35,6 +37,9 @@ export default {
   },
   methods: {
     //actually do GUID
+    getGUID() {
+      return Math.floor(Math.random() * 1000000);
+    },
     removePokemon() {
       this.$emit("remove-pokemon", this.pokemon.id);
     },
@@ -60,6 +65,7 @@ export default {
   transform: scale(1);
   transition: all 0.2s;
   cursor: pointer;
+  max-height: 250px;
 }
 
 .pokemon:hover {
