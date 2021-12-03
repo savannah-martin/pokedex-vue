@@ -34,7 +34,6 @@ export default {
 
 <style>
 #party {
-  margin-top: 70px;
   background-color: #fff;
   min-height: 30vh;
   width: 100%;
