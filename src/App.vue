@@ -95,6 +95,15 @@ export default {
     },
     add(guid) {
       if (this.partyPokemon.length < 6) {
+        this.filteredPokemon.forEach((p) => {
+          if (p.guid == guid) {
+            let pokemon = p;
+            const pokemonCopy = { ...pokemon };
+            pokemonCopy.guid = this.getGUID();
+            console.log(pokemonCopy.guid);
+            this.partyPokemon.push(pokemonCopy);
+          }
+        });
         this.allPokemon.forEach((p) => {
           if (p.guid == guid) {
             let pokemon = p;
