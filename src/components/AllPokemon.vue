@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-3" id="allPokemon">
+  <div class="px-3" id="allPokemon">
     <h2>All Pokemon</h2>
   </div>
   <div id="all-pokemon">

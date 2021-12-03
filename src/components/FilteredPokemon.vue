@@ -1,6 +1,6 @@
 <template>
   <div v-if="filteredPokemon.length > 0" id="filter">
-    <h2>Filtered Pokemon</h2>
+    <h2 class="px-3">Filtered Pokemon</h2>
     <div id="filtered-pokemon">
       <PokemonCard
         v-for="p in filteredPokemon"
@@ -31,9 +31,13 @@ export default {
 </script>
 
 <style>
+#filter {
+  text-align: left;
+}
 #filtered-pokemon {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  text-align: left;
 }
 </style>

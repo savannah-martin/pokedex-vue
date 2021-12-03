@@ -37,6 +37,7 @@ export default {
   margin-top: 85px;
   background-color: #fff;
   width: 100%;
+  min-height: 85px;
   /* height: auto; */
   display: flex;
   flex-direction: column;
