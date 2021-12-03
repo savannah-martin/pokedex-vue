@@ -36,7 +36,6 @@ export default {
 #party {
   margin-top: 85px;
   background-color: #fff;
-  min-height: 30vh;
   width: 100%;
   /* height: auto; */
   display: flex;
