@@ -1,7 +1,7 @@
 <template>
   <div id="party">
     <h2 class="px-3">Party</h2>
-    <h3>{{ partyPokemon.length }} of 6</h3>
+    <h3 class="mx-4">{{ partyPokemon.length }} of 6</h3>
   </div>
   <div class="party-pokemon">
     <!-- pokemon cards go here -->
@@ -34,13 +34,16 @@ export default {
 
 <style>
 #party {
+  margin-top: 85px;
   background-color: #fff;
   min-height: 30vh;
   width: 100%;
   /* height: auto; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: start;
   flex-wrap: wrap;
+  text-align: left;
 }
 
 .party-pokemon {
